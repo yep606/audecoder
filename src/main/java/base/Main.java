@@ -36,6 +36,14 @@ public class Main {
         main.put("audio", uri);
         main.put("config", specification);
 
+        /*
+         *
+         *
+         *
+         *
+         *
+         */
+
         HttpPost httpPost = new HttpPost(POST);
         httpPost.setEntity(new StringEntity(main.toString()));
         httpPost.addHeader("Authorization", String.format("Api-Key %s", key));
@@ -48,10 +56,11 @@ public class Main {
         String id = object.getString("id");
 
         HttpGet httpGet = new HttpGet(String.format("https://operation.api.cloud.yandex.net/operations/%s", id ));
-        httpGet.addHeader("Authorization", String.format("'Api-Key %s", key));
+        httpGet.addHeader("Authorization", String.format("Api-Key %s", key));
 
         System.out.println("Starting decoding: ");
         JSONObject getResponse;
+
         while(true) {
 
             Thread.sleep(1000);
